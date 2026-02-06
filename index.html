@@ -5,181 +5,259 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Vitae - ASEP SAEPUR ROHMAN</title>
     <style>
-        /* Reset & Base Style */
+        /* RESET & DASAR */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f0f2f5; font-size: 14px; }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background-color: #f4f7f6; 
+            padding: 30px;
+        }
         
-        /* Container */
-        .container { max-width: 800px; margin: 30px auto; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        /* KERTAS CV UTAMA */
+        .cv-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: #fff; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border-radius: 8px;
+        }
         
-        /* Header Section */
-        header { background-color: #2c3e50; color: #fff; padding: 40px; display: flex; align-items: center; gap: 30px; border-bottom: 5px solid #3498db; }
-        .profile-img { width: 130px; height: 130px; border-radius: 50%; border: 4px solid #fff; object-fit: cover; flex-shrink: 0; }
-        .header-info h1 { margin: 0; font-size: 28px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
-        .header-info p { margin: 5px 0 0; color: #ecf0f1; font-size: 16px; font-weight: 300; }
+        /* HEADER MEWAH */
+        header { 
+            background: #2c3e50; 
+            color: #ecf0f1; 
+            padding: 40px; 
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            border-bottom: 5px solid #3498db;
+        }
         
-        /* Contact Bar */
-        .contact-bar { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 15px; font-size: 13px; align-items: center; }
-        .contact-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.2s; }
-        .btn-wa { background-color: #25D366; color: #fff; }
-        .btn-wa:hover { background-color: #1ebc57; }
-        .btn-linkedin { background-color: #0077b5; color: #fff; }
-        .btn-linkedin:hover { background-color: #005e93; }
-        .icon-svg { width: 18px; height: 18px; fill: currentColor; }
-        .location-tag { color: #bdc3c7; font-style: italic; margin-left: 5px; }
+        .profile-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .header-content h1 {
+            margin: 0;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+        
+        .header-content .role {
+            font-size: 18px;
+            color: #3498db;
+            font-weight: 600;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+        
+        /* INFO KONTAK */
+        .contact-info {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+        }
+        
+        .contact-item { display: flex; align-items: center; gap: 8px; color: #bdc3c7; }
+        .contact-item svg { width: 18px; height: 18px; fill: currentColor; }
+        
+        /* ISI HALAMAN */
+        .main-body { padding: 40px; }
+        
+        /* JUDUL SECTION */
+        h2 { 
+            font-size: 20px; 
+            color: #2c3e50; 
+            border-bottom: 2px solid #3498db; 
+            padding-bottom: 10px; 
+            margin-bottom: 25px; 
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+        
+        /* RINGKASAN */
+        .summary p { 
+            text-align: justify; 
+            color: #555; 
+            margin-bottom: 30px; 
+            line-height: 1.8;
+        }
 
-        /* Content Layout */
-        .main-content { padding: 40px; }
+        /* PENGALAMAN KERJA (DETAIL) */
+        .job-card {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid #3498db;
+        }
         
-        /* Section Styling */
-        section { margin-bottom: 35px; }
-        h2 { font-size: 18px; color: #2c3e50; text-transform: uppercase; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-bottom: 20px; font-weight: 700; letter-spacing: 0.5px; }
+        .job-title { font-size: 18px; font-weight: 700; color: #2c3e50; display: block; }
+        .job-company { font-size: 15px; color: #3498db; font-weight: 600; display: block; margin-bottom: 5px; }
+        .job-date { font-size: 13px; color: #7f8c8d; font-style: italic; display: block; margin-bottom: 15px; }
         
-        /* Skills Grid */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
-        .skill-tag { background: #f8f9fa; border: 1px solid #e9ecef; color: #495057; padding: 8px 12px; border-radius: 4px; font-weight: 600; font-size: 13px; text-align: center; }
-        .skill-tag.highlight { background: #e8f0fe; color: #1a73e8; border-color: #d2e3fc; }
-        
-        /* Experience */
-        .item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #eee; }
-        .item:last-child { border-bottom: none; }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
-        .item-title { font-weight: 700; font-size: 16px; color: #2c3e50; }
-        .item-meta { font-size: 12px; color: #7f8c8d; font-style: italic; }
-        .item-desc ul { padding-left: 20px; margin-top: 5px; color: #555; }
-        .item-desc li { margin-bottom: 4px; }
+        .job-desc li {
+            margin-bottom: 8px;
+            color: #444;
+            padding-left: 5px;
+        }
 
-        /* Certificate */
-        .cert-box { background: #fffcf5; border-left: 3px solid #f1c40f; padding: 15px; margin-bottom: 15px; border-radius: 0 4px 4px 0; }
-        .cert-title { font-weight: bold; color: #d35400; display: block; margin-bottom: 4px; }
-        .cert-detail { font-size: 13px; color: #666; }
+        /* SERTIFIKAT BOX */
+        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .cert-item { 
+            background: #f8f9fa; 
+            padding: 15px; 
+            border: 1px solid #eee; 
+            border-radius: 6px;
+        }
+        .cert-title { font-weight: bold; color: #2c3e50; display: block; margin-bottom: 5px; }
+        .cert-issuer { font-size: 12px; color: #7f8c8d; display: block; }
+        .cert-desc { font-size: 13px; color: #555; margin-top: 5px; display: block; }
 
-        /* Button */
-        .btn { display: inline-block; background: #2980b9; color: #fff; padding: 10px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s; }
-        .btn:hover { background: #3498db; }
+        /* SKILL BARIS */
+        .skills-wrapper { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        .skill-badge {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid #bdc3c7;
+        }
+        .skill-badge.highlight { background: #3498db; color: white; border-color: #2980b9; }
 
-        /* Footer */
-        footer { background: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #999; border-top: 1px solid #eee; }
-        
+        /* FOOTER */
+        .footer-cv {
+            text-align: center;
+            font-size: 12px;
+            color: #95a5a6;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* RESPONSIF HP */
         @media (max-width: 600px) {
-            header { flex-direction: column; text-align: center; padding: 30px 20px; }
-            .contact-bar { justify-content: center; }
-            .item-header { flex-direction: column; }
+            header { flex-direction: column; text-align: center; padding: 30px; }
+            .header-content { width: 100%; }
+            .contact-info { justify-content: center; }
+            .cert-grid { grid-template-columns: 1fr; } /* Sertifikat jadi 1 kolom di HP */
+            .cv-container { box-shadow: none; border-radius: 0; }
+            body { padding: 0; background: #fff; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="cv-container">
         <header>
-            <img src="1.jpg" alt="Foto Profil" class="profile-img">
-            <div class="header-info">
-                <h1>ASEP SAEPUR ROHMAN</h1>
-                <p>Technical Support & Admin Specialist | Web Developer Enthusiast</p>
+            <img src="1.jpg" alt="Foto Profil" class="profile-photo">
+            <div class="header-content">
+                <h1>Asep Saepur Rohman</h1>
+                <div class="role">Technical Support Specialist & Administration</div>
                 
-                <div class="contact-bar">
-                    <a href="https://wa.me/6285641366030" target="_blank" class="contact-btn btn-wa">
-                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                        Hubungi via WhatsApp
-                    </a>
-                    <a href="https://www.linkedin.com/in/asef-saepur-rohman-0a276b3aa" target="_blank" class="contact-btn btn-linkedin">
-                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        LinkedIn
-                    </a>
-                    <span class="location-tag">📍 Bekasi, Jawa Barat</span>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Bekasi, Jawa Barat
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.11 15.11 0 01-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1.01A11.36 11.36 0 018.59 3.91c0-.55-.45-1-1-1H4.39c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                        +62 856-4136-6030
+                    </div>
+                    <a href="https://wa.me/6285641366030" style="color:#ecf0f1; text-decoration:none; background: #27ae60; padding: 2px 10px; border-radius: 4px; font-weight:bold;">Chat WhatsApp</a>
                 </div>
             </div>
         </header>
 
-        <div class="main-content">
-            <section>
+        <div class="main-body">
+            
+            <section class="summary">
                 <h2>Ringkasan Profesional</h2>
-                <p style="text-align: justify;">
-                    Profesional muda dengan pengalaman kuat di bidang Technical Support dan Administrasi Digital. Terbiasa menangani keluhan pelanggan (handling complaint) serta troubleshooting jaringan internet di PT Asnet Teknologi Indonesia. Memiliki keahlian ganda dalam teknis hardware/jaringan dan manajemen konten/web, didukung prestasi nasional di bidang kepenulisan. Siap memberikan pelayanan terbaik dengan komunikasi yang solutif dan responsif.
+                <p>
+                    Profesional berpengalaman selama <strong>2 tahun</strong> di PT Asnet Teknologi Indonesia dengan keahlian ganda sebagai <strong>Teknisi Lapangan (Technical Support)</strong> dan <strong>Staff Administrasi</strong>. Memiliki kemampuan analisis teknis yang kuat dalam troubleshooting jaringan dan hardware, sekaligus terampil dalam manajemen data pelanggan dan penanganan komplain (Customer Service).
+                    <br><br>
+                    Terbiasa bekerja di bawah tekanan, baik saat melakukan perbaikan teknis di lapangan maupun saat mengelola administrasi kantor secara akurat.
                 </p>
             </section>
 
             <section>
-                <h2>Keahlian Utama</h2>
-                <div class="skills-grid">
-                    <div class="skill-tag highlight">Handling Complaint (CS)</div>
-                    <div class="skill-tag highlight">Troubleshooting Network/WiFi</div>
-                    <div class="skill-tag">Admin E-Commerce</div>
-                    <div class="skill-tag">Technical Support</div>
-                    <div class="skill-tag">Copywriting & Content</div>
-                    <div class="skill-tag">Input Data & Excel</div>
-                    <div class="skill-tag">HTML & CSS Basic</div>
+                <h2>Keahlian & Kompetensi</h2>
+                <div class="skills-wrapper">
+                    <span class="skill-badge highlight">Customer Service & Complaint Handling</span>
+                    <span class="skill-badge highlight">Administrasi & Input Data</span>
+                    <span class="skill-badge">Microsoft Office (Word/Excel)</span>
+                    
+                    <span class="skill-badge highlight">Technical Support & Troubleshooting</span>
+                    <span class="skill-badge">Instalasi Jaringan & WiFi</span>
+                    <span class="skill-badge">Problem Solving</span>
                 </div>
             </section>
 
             <section>
                 <h2>Pengalaman Kerja</h2>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Teknisi & Support - PT Asnet Teknologi Indonesia</span>
-                        <span class="item-meta">Pengalaman Sebelumnya</span>
-                    </div>
-                    <div class="item-desc">
+                <div class="job-card">
+                    <span class="job-title">Teknisi Jaringan & Staff Administrasi Support</span>
+                    <span class="job-company">PT Asnet Teknologi Indonesia</span>
+                    <span class="job-date">Januari 2024 - Januari 2026 (2 Tahun)</span>
+                    <div class="job-desc">
                         <ul>
-                            <li>Menangani keluhan pelanggan (customer complaint) terkait gangguan koneksi Wi-Fi/Internet dengan respon cepat.</li>
-                            <li>Melakukan troubleshooting teknis di lapangan dan memastikan jaringan kembali normal.</li>
-                            <li>Memberikan edukasi dan pelayanan ramah kepada pelanggan untuk menjaga kepuasan layanan.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Admin Online (Freelance) - ASR Web Store</span>
-                        <span class="item-meta">Februari 2026 - Sekarang</span>
-                    </div>
-                    <div class="item-desc">
-                        <ul>
-                            <li>Mengelola operasional toko online dan memastikan data stok selalu akurat.</li>
-                            <li>Menulis deskripsi produk yang menarik (Copywriting) serta melayani chat pelanggan.</li>
+                            <li><strong>Tugas Teknisi:</strong> Melakukan instalasi, perawatan (maintenance), dan perbaikan gangguan jaringan internet/WiFi di lokasi pelanggan secara langsung.</li>
+                            <li><strong>Troubleshooting:</strong> Mendiagnosa kerusakan hardware atau error pada jaringan dan memberikan solusi perbaikan yang cepat dan efektif di lapangan.</li>
+                            <li><strong>Customer Service:</strong> Menangani keluhan pelanggan (complaint handling) melalui telepon dan WhatsApp dengan respon yang ramah dan solutif.</li>
+                            <li><strong>Administrasi:</strong> Membuat laporan harian teknis, merekap data pelanggan baru, dan memastikan status gangguan tercatat rapi dalam sistem database perusahaan.</li>
+                            <li><strong>Edukasi Pelanggan:</strong> Memberikan panduan teknis dasar kepada pelanggan agar penggunaan perangkat lebih optimal dan awet.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Founder & Web Developer - WAY (With A Yes)</span>
-                        <span class="item-meta">Proyek Mandiri</span>
-                    </div>
-                    <div class="item-desc">
+                <div class="job-card">
+                    <span class="job-title">Owner & Operational Admin (Freelance)</span>
+                    <span class="job-company">ASR Web Store</span>
+                    <span class="job-date">2023 - Sekarang</span>
+                    <div class="job-desc">
                         <ul>
-                            <li>Membangun layanan undangan digital dan mengelola komunikasi langsung dengan klien.</li>
+                            <li>Mengelola operasional bisnis harian mulai dari pelayanan chat pelanggan (Fast Response) hingga pemrosesan order.</li>
+                            <li>Melakukan pembukuan sederhana dan rekapitulasi data penjualan menggunakan Microsoft Excel/Google Sheets.</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2>Penghargaan & Sertifikasi</h2>
-                <div class="cert-box">
-                    <span class="cert-title">Penulis Terpilih Nasional - Lomba Quotes Batch 19</span>
-                    <span class="cert-detail">Detak Pustaka & Nulis Quotes (Nov 2024) | Karya: "Ketika Perpisahan Tiba"</span>
-                </div>
-                <div class="cert-box">
-                    <span class="cert-title">Penulis Terpilih Nasional - Kolaborasi Puisi</span>
-                    <span class="cert-detail">Detak Pustaka & Halo Penyair (Nov 2024) | Karya: "Dariku Untukmu"</span>
-                </div>
-                <div class="cert-box">
-                    <span class="cert-title">Peserta Lomba Cipta Puisi Nasional (LCP 35)</span>
-                    <span class="cert-detail">Event Menulis Nasional (2025) | Bersaing dengan 600+ Peserta</span>
+                <h2>Prestasi & Sertifikasi</h2>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <span class="cert-title">Penulis Terpilih Nasional (Quotes)</span>
+                        <span class="cert-issuer">Detak Pustaka & Nulis Quotes - Nov 2024</span>
+                        <span class="cert-desc">Dipilih dari ribuan peserta, menunjukkan kemampuan menyusun kata (Copywriting) yang ringkas dan mengena.</span>
+                    </div>
+                    <div class="cert-item">
+                        <span class="cert-title">Penulis Terpilih Nasional (Puisi)</span>
+                        <span class="cert-issuer">Detak Pustaka & Halo Penyair - Nov 2024</span>
+                        <span class="cert-desc">Karya "Dariku Untukmu" terpilih dalam antologi nasional, membuktikan kreativitas bahasa.</span>
+                    </div>
                 </div>
             </section>
 
-            <section>
-                <h2>Portofolio Web</h2>
-                <a href="https://portofolioasrweb.netlify.app/" target="_blank" class="btn">Lihat Portofolio Saya</a>
-            </section>
+            <div class="footer-cv">
+                &copy; 2026 Asep Saepur Rohman. Dokumen ini dibuat dengan data yang sebenar-benarnya.
+            </div>
         </div>
-
-        <footer>
-            &copy; 2026 Asep Saepur Rohman.
-        </footer>
     </div>
 
 </body>
